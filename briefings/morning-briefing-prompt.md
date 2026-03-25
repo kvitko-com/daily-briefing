@@ -4,9 +4,16 @@ Run a daily morning briefing for Daneek.
 
 Goals:
 - Keep it concise enough to read in about 2 minutes.
-- Focus on: AI, cybersecurity events, tech stocks, Harrisonburg VA local news, and the top national news story.
+- Focus on: AI, cybersecurity events, tech stocks, local Harrisonburg VA news, and the top national story.
 - Store the final structured briefing locally.
 - Send the final summary to Discord channel `channel:1482939264194052206`.
+- Prefer high-signal source diversity over many shallow items.
+
+## Required references
+
+Before gathering sources, read:
+- `/home/node/.openclaw/workspace/skills/morning-briefing/references/source-priority.md`
+- `/home/node/.openclaw/workspace/skills/morning-briefing/references/formatting-rules.md`
 
 ## Inputs to gather
 
@@ -14,9 +21,10 @@ Goals:
 Use the X skill and available bearer-token v2 endpoints.
 
 Important limitation:
-- If home timeline / followed-feed is not available because the X API tier blocks it, say so internally and fall back to the best available X sources.
+- If home timeline / followed-feed is not available because the X API tier blocks it, do not fail the briefing.
 - Preferred source is the authenticated home timeline of roughly the latest 100 posts from followed accounts.
-- If that is unavailable, use a combination of relevant searches and direct account/news-source reads to approximate a useful morning brief.
+- If that is unavailable, use the compact fallback account buckets from `source-priority.md` plus targeted searches.
+- Do not let one source dominate the briefing unless the story is overwhelmingly central.
 
 Topics to prioritize:
 - AI
@@ -31,12 +39,20 @@ Prioritize:
 - WHSV
 - WSVA
 - Daily News-Record / DNROnline
-- major local X posts if useful
+- Rocktown Now
+- official city/JMU sources when useful
 
 ### 3) National / tech context
-Use the web search tool sparingly to find:
+Use web search sparingly to find:
 - one top national story
 - one to three meaningful tech/AI/cyber stories if they are genuinely relevant
+
+## Research budget
+
+Keep the run lean:
+- avoid broad web-search loops
+- avoid fetching many near-duplicate stories
+- stop once the sections can be filled with high-confidence items
 
 ## Output format
 
@@ -46,7 +62,7 @@ Use exactly these sections, in this order:
 - 3 to 5 bullets max
 
 **Interesting Threads**
-- 1 to 3 bullets max
+- 0 to 3 bullets max; omit the section entirely if there is nothing genuinely interesting
 
 **Tech News**
 - 2 to 4 bullets max
@@ -65,6 +81,7 @@ Use exactly these sections, in this order:
 - no long intro
 - prefer bullets over paragraphs
 - mention why an item matters in a few words
+- avoid duplicating the same story across sections unless necessary
 
 ## Local storage
 
@@ -76,8 +93,8 @@ Also write a machine-readable JSON summary to:
 
 The markdown file should include:
 - generated timestamp in UTC
-- the four required sections
-- optional Action Items section
+- sections actually used
+- a one-line timeline access note
 
 The JSON file should include:
 - date
@@ -88,6 +105,7 @@ The JSON file should include:
 - localNews[]
 - actionItems[]
 - notes.aboutTimelineAccess
+- notes.sources
 
 ## Delivery
 

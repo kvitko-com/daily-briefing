@@ -61,6 +61,7 @@ Read these before generating the briefing:
 
 - `{baseDir}/references/source-priority.md`
 - `{baseDir}/references/formatting-rules.md`
+- `{baseDir}/references/x-source-handles.md`
 
 Use them to rank story relevance, keep source diversity, improve X fallback behavior, and avoid wasted research.
 

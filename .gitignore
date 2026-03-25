@@ -1,0 +1,17 @@
+# Generated briefing outputs
+briefings/daily/*.md
+briefings/daily/*.json
+
+# OpenClaw workspace/bootstrap files not part of this project
+.openclaw/
+AGENTS.md
+BOOTSTRAP.md
+HEARTBEAT.md
+IDENTITY.md
+SOUL.md
+TOOLS.md
+USER.md
+
+# Local scratch / OS noise
+.DS_Store
+*.log

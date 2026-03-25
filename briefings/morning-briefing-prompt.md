@@ -14,6 +14,7 @@ Goals:
 Before gathering sources, read:
 - `/home/node/.openclaw/workspace/skills/morning-briefing/references/source-priority.md`
 - `/home/node/.openclaw/workspace/skills/morning-briefing/references/formatting-rules.md`
+- `/home/node/.openclaw/workspace/skills/morning-briefing/references/x-source-handles.md`
 
 ## Inputs to gather
 

@@ -55,6 +55,15 @@ Prioritize:
 
 Use web search sparingly. Pick only genuinely relevant items.
 
+## Required references
+
+Read these before generating the briefing:
+
+- `{baseDir}/references/source-priority.md`
+- `{baseDir}/references/formatting-rules.md`
+
+Use them to rank story relevance, keep source diversity, improve X fallback behavior, and avoid wasted research.
+
 ## Local persistence
 
 Before finishing, write:

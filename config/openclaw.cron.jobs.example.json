@@ -1,0 +1,27 @@
+{
+  "version": 1,
+  "jobs": [
+    {
+      "id": "replace-with-generated-job-id",
+      "name": "Daily Morning Briefing",
+      "enabled": true,
+      "schedule": {
+        "kind": "cron",
+        "expr": "0 8 * * *",
+        "tz": "America/New_York"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "Read /home/node/.openclaw/workspace/briefings/morning-briefing-prompt.md and execute it exactly. Use the morning-briefing skill and x-twitter skill plus web search/fetch as needed. Write the results to /home/node/.openclaw/workspace/briefings/daily/YYYY-MM-DD.md and .json, then send the final concise summary to Discord channel:1482939264194052206."
+      },
+      "delivery": {
+        "mode": "announce",
+        "channel": "discord",
+        "to": "channel:1482939264194052206",
+        "bestEffort": true
+      }
+    }
+  ]
+}

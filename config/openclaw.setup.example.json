@@ -1,0 +1,45 @@
+{
+  "agents": {
+    "defaults": {
+      "model": {
+        "primary": "openai-codex/gpt-5.4",
+        "fallbacks": ["openai/gpt-5-nano"]
+      },
+      "workspace": "/home/node/.openclaw/workspace",
+      "sandbox": {
+        "mode": "off"
+      }
+    }
+  },
+  "tools": {
+    "profile": "coding",
+    "web": {
+      "search": {
+        "enabled": true,
+        "provider": "brave"
+      }
+    }
+  },
+  "skills": {
+    "entries": {
+      "x-twitter": {
+        "enabled": true
+      }
+    }
+  },
+  "plugins": {
+    "entries": {
+      "brave": {
+        "enabled": true,
+        "config": {
+          "webSearch": {
+            "apiKey": "SET_BRAVE_API_KEY_HERE"
+          }
+        }
+      }
+    }
+  },
+  "cron": {
+    "enabled": true
+  }
+}
